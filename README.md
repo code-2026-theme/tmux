@@ -52,6 +52,10 @@ Set these **before** sourcing the theme:
 | `@code-2026-status-interval` | number | `5` | Status refresh interval (seconds) |
 | `@code-2026-clock-mode-style` | `12`, `24` | `24` | Clock format |
 | `@code-2026-pane-border-status` | `off`, `top`, `bottom` | `off` | Pane border status line |
+| `@code-2026-window-format` | tmux format | `#I:#W` | Window title format (e.g. `#I:#W`, `#W`, `#I:#W#F`) |
+| `@code-2026-window-current-format` | tmux format | `#I:#W` | Current window title format |
+| `@code-2026-window-style` | style string | `""` | Regular window text style |
+| `@code-2026-window-current-style` | style string | `bold` | Current window text style |
 
 ### Module Styles
 
