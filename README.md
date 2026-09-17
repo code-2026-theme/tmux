@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="../nvim/assets/logo.svg" alt="code-2026" width="96" />
+  <img src="assets/logo.svg" alt="code-2026" width="96" />
 </p>
 
 # code-2026 — tmux
