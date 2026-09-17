@@ -1,12 +1,43 @@
-# code-2026 tmux
+<p align="center">
+  <img src="../nvim/assets/logo.svg" alt="code-2026" width="96" />
+</p>
 
-A tmux theme for the [code-2026](https://github.com/code-2026-theme) color scheme family, ported from VS Code's **Dark Modern 2026** and **Light 2026** themes.
+# code-2026 — tmux
+
+A tmux theme for the [code-2026](https://github.com/code-2026-theme) color scheme family, ported from VS Code's
+**Dark Modern 2026**: red keywords, purple functions, teal types and light-blue strings.
+
+## The code-2026 family
+
+| Target | Repository | |
+| --- | --- | --- |
+| Neovim | [code-2026-theme/nvim](https://github.com/code-2026-theme/nvim) | colorscheme plugin |
+| Ghostty | [code-2026-theme/ghostty](https://github.com/code-2026-theme/ghostty) | terminal theme |
+| kitty | [code-2026-theme/kitty](https://github.com/code-2026-theme/kitty) | terminal theme |
+| Xcode | [code-2026-theme/xcode](https://github.com/code-2026-theme/xcode) | editor theme |
+| Obsidian | [code-2026-theme/obsidian](https://github.com/code-2026-theme/obsidian) | app theme |
+| Yazi | [code-2026-theme/yazi](https://github.com/code-2026-theme/yazi) | file manager |
+| Starship | [code-2026-theme/starship](https://github.com/code-2026-theme/starship) | shell prompt |
+| tmux | [code-2026-theme/tmux](https://github.com/code-2026-theme/tmux) | **this repo** |
+
+Every port shares one palette, so `:terminal` inside Neovim renders identically to the host
+terminal.
+
+## Requirements
+
+- tmux 3.2+ (for `sync` flavor)
+- Terminal with color scheme notification support (for `sync`):
+  - Ghostty
+  - kitty
+  - WezTerm
+  - iTerm2
+  - Windows Terminal
 
 ## Installation
 
 ### Manual
 
-```bash
+```sh
 mkdir -p ~/.config/tmux/plugins/code-2026
 git clone https://github.com/code-2026-theme/tmux.git ~/.config/tmux/plugins/code-2026/tmux
 ```
@@ -24,7 +55,7 @@ source-file ~/.config/tmux/plugins/code-2026/tmux/code-2026_main.conf
 
 Reload tmux:
 
-```bash
+```sh
 tmux source-file ~/.tmux.conf
 ```
 
@@ -106,51 +137,45 @@ source-file ~/.config/tmux/plugins/code-2026/tmux/code-2026_options.conf
 source-file ~/.config/tmux/plugins/code-2026/tmux/code-2026_main.conf
 ```
 
-## Color Palette
+## Palette
 
 ### Dark (VS Code Dark Modern 2026)
 
-| Element | Color |
-|---------|-------|
-| Background | `#121314` |
-| Foreground | `#bbbebf` |
-| Accent | `#3994bc` |
-| Keywords | `#ff7b72` |
-| Functions | `#d2a8ff` |
-| Types | `#4ec9b0` |
-| Strings | `#a5d6ff` |
+| | Normal | | Bright |
+| --- | --- | --- | --- |
+| black | `#202122` | bright black | `#555555` |
+| red | `#ff7b72` | bright red | `#ffa198` |
+| green | `#7ee787` | bright green | `#91eb99` |
+| yellow | `#cd9731` | bright yellow | `#ffa657` |
+| blue | `#79c0ff` | bright blue | `#a5d6ff` |
+| magenta | `#d2a8ff` | bright magenta | `#b267e6` |
+| cyan | `#4ec9b0` | bright cyan | `#71d4c0` |
+| white | `#bbbebf` | bright white | `#ffffff` |
+
+Background `#121314`, foreground `#bbbebf`, cursor `#bbbebf`, selection `#276782` on
+`#ffffff`.
 
 ### Light (VS Code Light 2026)
 
-| Element | Color |
-|---------|-------|
-| Background | `#ffffff` |
-| Foreground | `#202020` |
-| Accent | `#0069cc` |
-| Keywords | `#cf222e` |
-| Functions | `#8250df` |
-| Types | `#116329` |
-| Strings | `#0a3069` |
+| | Normal | | Bright |
+| --- | --- | --- | --- |
+| black | `#f0f1f2` | bright black | `#999999` |
+| red | `#cf222e` | bright red | `#cf222e` |
+| green | `#116329` | bright green | `#116329` |
+| yellow | `#953800` | bright yellow | `#953800` |
+| blue | `#0550ae` | bright blue | `#0550ae` |
+| magenta | `#8250df` | bright magenta | `#8250df` |
+| cyan | `#116329` | bright cyan | `#116329` |
+| white | `#202020` | bright white | `#ffffff` |
 
-## Requirements
+Background `#FFFFFF`, foreground `#202020`, cursor `#0069CC`, selection `#C2DAF5` on
+`#202020`.
 
-- tmux 3.2+ (for `sync` flavor)
-- Terminal with color scheme notification support (for `sync`):
-  - Ghostty
-  - kitty
-  - WezTerm
-  - iTerm2
-  - Windows Terminal
+## Credits
 
-## Family
-
-Part of the **code-2026** multi-target theme family:
-
-- [Neovim](https://github.com/code-2026-theme/nvim)
-- [tmux](https://github.com/code-2026-theme/tmux)
-- [Ghostty](https://github.com/code-2026-theme/ghostty)
-- [kitty](https://github.com/code-2026-theme/kitty)
+Palette from Microsoft's VS Code **Dark Modern 2026** theme, by way of
+[D0nw0r/dark2026.nvim](https://github.com/D0nw0r/dark2026.nvim) (MIT).
 
 ## License
 
-MIT
+[MIT](../LICENSE)
