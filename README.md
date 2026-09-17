@@ -18,7 +18,8 @@ Then add to your `~/.tmux.conf`:
 set -g @code-2026-flavor "dark"
 
 # Source the theme
-source-file ~/.config/tmux/plugins/code-2026/tmux/code-2026.tmux
+source-file ~/.config/tmux/plugins/code-2026/tmux/code-2026_options.conf
+source-file ~/.config/tmux/plugins/code-2026/tmux/code-2026_main.conf
 ```
 
 Reload tmux:
@@ -84,7 +85,8 @@ set -g @code-2026-flavor "auto"
 set -g @code-2026-flavor "sync"
 
 # Source the theme
-source-file ~/.config/tmux/plugins/code-2026/tmux/code-2026.tmux
+source-file ~/.config/tmux/plugins/code-2026/tmux/code-2026_options.conf
+source-file ~/.config/tmux/plugins/code-2026/tmux/code-2026_main.conf
 ```
 
 ## Color Palette
