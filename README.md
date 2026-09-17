@@ -40,6 +40,8 @@ Press `prefix + I` to install.
 
 Set these **before** sourcing the theme:
 
+### General
+
 | Option | Values | Default | Description |
 |--------|--------|---------|-------------|
 | `@code-2026-flavor` | `dark`, `light`, `auto`, `sync` | `dark` | Color variant. `auto` detects macOS dark mode at startup. `sync` listens for OS changes live (tmux 3.2+). |
@@ -48,8 +50,23 @@ Set these **before** sourcing the theme:
 | `@code-2026-status-left-separator` | string | ` ` | Separator between left modules |
 | `@code-2026-status-right-separator` | string | ` ` | Separator between right modules |
 | `@code-2026-status-interval` | number | `5` | Status refresh interval (seconds) |
-| `@code-2026-clock-mode-colour` | color | accent | Clock color |
 | `@code-2026-clock-mode-style` | `12`, `24` | `24` | Clock format |
+| `@code-2026-pane-border-status` | `off`, `top`, `bottom` | `off` | Pane border status line |
+
+### Module Styles
+
+Customize text style for each module (empty = default):
+
+| Option | Values | Default | Description |
+|--------|--------|---------|-------------|
+| `@code-2026-session-style` | style string | `""` | Session text style |
+| `@code-2026-directory-style` | style string | `""` | Directory text style |
+| `@code-2026-date_time-style` | style string | `""` | Date/time text style |
+| `@code-2026-application-style` | style string | `""` | Application text style |
+| `@code-2026-cpu-style` | style string | `""` | CPU text style |
+| `@code-2026-ram-style` | style string | `""` | RAM text style |
+
+Style values: `bold`, `italic`, `dim`, `underscore`, `blink`, `reverse`, `strikethrough`. Combine with commas: `"bold,italic"`.
 
 ### Status Modules
 
@@ -76,13 +93,9 @@ set -g @code-2026-flavor "dark"
 set -g @code-2026-status-left "session,directory"
 set -g @code-2026-status-right "application,date_time"
 
-# Auto-detect OS theme (once at startup)
-set -g @code-2026-flavor "auto"
-
-# Live-sync with OS dark/light mode (tmux 3.2+)
-# Requires terminal support for color scheme notifications
-# (Ghostty, kitty, WezTerm, iTerm2)
-set -g @code-2026-flavor "sync"
+# Module styles
+set -g @code-2026-session-style "bold"
+set -g @code-2026-directory-style "bold,italic"
 
 # Source the theme
 source-file ~/.config/tmux/plugins/code-2026/tmux/code-2026_options.conf
