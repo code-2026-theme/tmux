@@ -82,6 +82,7 @@ Set these **before** sourcing the theme:
 | `@code-2026-status-right-separator` | string | ` ` | Separator between right modules |
 | `@code-2026-status-interval` | number | `5` | Status refresh interval (seconds) |
 | `@code-2026-clock-mode-style` | `12`, `24` | `24` | Clock format |
+| `@code-2026-date_time-format` | strftime format | `%Y-%m-%d %H:%M` | Date/time module format ([strftime(3)](https://developer.apple.com/library/documentation/Darwin/Reference/ManPages/man3/strftime.3.html)) |
 | `@code-2026-pane-border-status` | `off`, `top`, `bottom` | `off` | Pane border status line |
 | `@code-2026-window-format` | tmux format | `#I:#W` | Window title format (e.g. `#I:#W`, `#W`, `#I:#W#F`) |
 | `@code-2026-window-current-format` | tmux format | `#I:#W` | Current window title format |
@@ -118,6 +119,48 @@ Available modules for `@code-2026-status-left` and `@code-2026-status-right`:
 | `cpu` | CPU percentage | [tmux-cpu](https://github.com/tmux-plugins/tmux-cpu) |
 | `ram` | RAM percentage | [tmux-cpu](https://github.com/tmux-plugins/tmux-cpu) |
 
+### Date/time Format
+
+`@code-2026-date_time-format` takes any [strftime(3)](https://developer.apple.com/library/documentation/Darwin/Reference/ManPages/man3/strftime.3.html) specifier. The
+theme expands it with tmux's `#{T:}` formatter, so each `%` token is replaced at
+render time; everything else (spaces, `-`, `:`, `/`, …) is printed as-is.
+
+| Specifier | Meaning | Example |
+|-----------|---------|---------|
+| `%Y` | 4-digit year | `2026` |
+| `%m` | Month, zero-padded (01–12) | `10` |
+| `%d` | Day, zero-padded (01–31) | `13` |
+| `%H` | Hour, 24-h (00–23) | `13` |
+| `%M` | Minute (00–59) | `24` |
+| `%S` | Second (00–59) | `05` |
+| `%I` | Hour, 12-h (01–12) | `01` |
+| `%p` | AM/PM | `PM` |
+| `%a` | Abbreviated weekday | `Tue` |
+| `%A` | Full weekday | `Tuesday` |
+| `%b` | Abbreviated month | `Oct` |
+| `%B` | Full month | `October` |
+| `%j` | Day of year (001–366) | `286` |
+| `%T` | Shorthand for `%H:%M:%S` | `13:24:05` |
+| `%F` | Shorthand for `%Y-%m-%d` | `2026-10-13` |
+
+Ready-made formats:
+
+| Value | Renders as |
+|-------|------------|
+| `%Y-%m-%d %H:%M` (default) | `2026-10-13 13:24` |
+| `%H:%M` | `13:24` |
+| `%I:%M %p` | `01:24 PM` |
+| `%a %H:%M` | `Tue 13:24` |
+| `%a %b %d, %Y` | `Tue Oct 13, 2026` |
+| `%d/%m/%Y %H:%M` | `13/10/2026 13:24` |
+
+```tmux
+set -g @code-2026-date_time-format "%H:%M"
+```
+
+Notes: use `%%` for a literal percent sign, and avoid `#{` (it would be parsed
+as a tmux format expansion).
+
 ### Example Configuration
 
 ```tmux
@@ -131,6 +174,9 @@ set -g @code-2026-status-right "application,date_time"
 # Module styles
 set -g @code-2026-session-style "bold"
 set -g @code-2026-directory-style "bold,italic"
+
+# Date/time format
+set -g @code-2026-date_time-format "%H:%M"
 
 # Source the theme
 source-file ~/.config/tmux/plugins/code-2026/tmux/code-2026_options.conf
